@@ -96,9 +96,9 @@ export const AboutMePage = () => {
                     <Chip label='Javascript' color='info' sx={{mt: 0.5, mr: 0.5}} /> 
                     <Chip label='Typescript' color='info' sx={{mt: 0.5, mr: 0.5}} /> */}
             </CardContent>
-            <CardActions>
+            {/* <CardActions>
               <Button size="small">See More</Button>
-            </CardActions> 
+            </CardActions>  */}
             
         </Card>
        </>
