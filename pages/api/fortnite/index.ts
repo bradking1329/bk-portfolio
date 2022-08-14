@@ -7,14 +7,14 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse) {
-        let data;
-        const callFortniteApi = async () => {
-                const re = await fetch('https://fortnite-api.com/v2/stats/br/v2?name=theking1329&image=gamepad', { mode: 'cors', headers: { 'Authorization': ``}}).then(res => console.log(res))
-                console.log('test: ', re);
-                console.log(re)
-                return res.json(re)
-        }
-        console.log(data);
-        console.log(callFortniteApi);
-        // res.status(200).json(callFortniteApi);
+        const response = await Promise.all(
+                        [
+                        await fetch('https://fortnite-api.com/v2/stats/br/v2?name=derkindest0d&image=gamepad', { mode: 'cors', headers: { 'Authorization': `${process.env.FORTNITE_API_KEY}`}}).then(res => res.json()).then(data => data.data),
+                        await fetch('https://fortnite-api.com/v2/stats/br/v2?name=theking1329&image=gamepad', { mode: 'cors', headers: { 'Authorization': `${process.env.FORTNITE_API_KEY}`}}).then(res => res.json()).then(data => data.data),
+                        await fetch('https://fortnite-api.com/v2/stats/br/v2?name=emm1269&image=gamepad', { mode: 'cors', headers: { 'Authorization': `${process.env.FORTNITE_API_KEY}`}}).then(res => res.json()).then(data => data.data),
+                        await fetch('https://fortnite-api.com/v2/stats/br/v2?name=barthunter&image=gamepad', { mode: 'cors', headers: { 'Authorization': `${process.env.FORTNITE_API_KEY}`}}).then(res => res.json()).then(data => data.data)
+                        ]
+                )
+        res.status(200).json(response);
+                
 }

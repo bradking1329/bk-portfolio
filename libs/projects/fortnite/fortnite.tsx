@@ -6,21 +6,10 @@ export const FortnitePage = () => {
     const [playerDataLoading, setPlayerDataLoading] = useState<boolean>(true);
     const callApi = async () => {
         try {
-            Promise.all(
-                [
-                    await fetch('https://fortnite-api.com/v2/stats/br/v2?name=derkindest0d&image=gamepad', { mode: 'cors', headers: { 'Authorization': ``}}).then(res => res.json()).then(data => data.data),
-                    await fetch('https://fortnite-api.com/v2/stats/br/v2?name=theking1329&image=gamepad', { mode: 'cors', headers: { 'Authorization': ``}}).then(res => res.json()).then(data => data.data),
-                    await fetch('https://fortnite-api.com/v2/stats/br/v2?name=emm1269&image=gamepad', { mode: 'cors', headers: { 'Authorization': ``}}).then(res => res.json()).then(data => data.data),
-                    await fetch('https://fortnite-api.com/v2/stats/br/v2?name=barthunter&image=gamepad', { mode: 'cors', headers: { 'Authorization': ``}}).then(res => res.json()).then(data => data.data)
-                ]
-            ).then(playerResponses => {
-                setPlayerData(playerResponses);
-                setPlayerDataLoading(true);
-            })
-            // const res = await fetch('https://fortnite-api.com/v2/stats/br/v2?name=theking1329&image=gamepad', { mode: 'cors', headers: { 'Authorization': ``}}).then(res => res.json()).then(data => data.data)
-            // console.log(res);
-            // const res = await fetch('/api/fortnite').then(data => console.log(data));
-            // const data = await res.json();
+          await fetch('/api/fortnite').then(res => res.json()).then(playerResponses => {
+            setPlayerData(playerResponses);
+            setPlayerDataLoading(true);
+          })
         } catch (err) {
             console.log(err);
         }
@@ -55,9 +44,9 @@ export const FortnitePage = () => {
                     <Chip label='123' />
                   </Typography> */}
                 </CardContent>
-                <CardActions>
+                {/* <CardActions>
                   <Button size="small">See More</Button>
-                </CardActions>
+                </CardActions> */}
                 <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>

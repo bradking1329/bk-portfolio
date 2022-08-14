@@ -18,12 +18,14 @@ import { usePrefersDarkMode } from '../hooks/usePrefersDarkMode';
 
 export const GlobalNav = () => {
     const prefersDarkMode = usePrefersDarkMode();
+    const { push } = useRouter();
     const flagBag = useFlags();
     const { asPath } = useRouter();
     const showTopNav = useMediaQuery('(min-width: 900px)');
     const [value, setValue] = useState('');
     const test = useMemo(() => console.log(flagBag), [flagBag])
-    const pages = useMemo(() => [{label: 'Home', href: '/'}, {label: 'About me', href: '/about-me'}, {label: 'Projects', href: '/projects'}], [])
+    const pages = useMemo(() => [{label: 'Home', href: '/', icon: <HomeIcon />}, {label: 'About me', href: '/about-me', icon: <InfoIcon />}, {label: 'Projects', href: '/projects', icon: <AccountTreeIcon />}], [])
+    const parentPage = useMemo(() => `/${asPath.split('/')[1]}`, [asPath])
   
     return (
       <>
@@ -66,10 +68,11 @@ export const GlobalNav = () => {
         : (
         <Container>
           <Paper elevation={3} sx={{minWidth: 'fit-content',position: 'fixed', bottom: 0, left: 0, right: 0}}>
-            <BottomNavigation showLabels={showTopNav} value={value} onChange={(event, newValue) => setValue(newValue)}>
-              <BottomNavigationAction label="Home" value='' icon={<HomeIcon />} />
-              {flagBag?.flags?.aboutMe && <BottomNavigationAction label="About me" value='about-me' icon={<InfoIcon />} />}
-              <BottomNavigationAction label="Projects" value='projects' icon={<AccountTreeIcon />} />
+            <BottomNavigation showLabels={showTopNav} value={parentPage} onChange={(event, url) => push(url)}>
+              {pages.map((page) => (
+                (page.href !== '/about-me' || flagBag?.flags?.aboutMe) && <BottomNavigationAction key={page.label} label={page.label} value={page.href} icon={page.icon}>
+                </BottomNavigationAction>
+              ))}
             </BottomNavigation>
           </Paper>
         </Container>)

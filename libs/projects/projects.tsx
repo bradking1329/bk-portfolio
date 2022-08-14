@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const ProjectsPage = () => {
-    return <div>Projects</div>
+    return <Link href={'/projects/fortnite'}>Fortnite - link</Link>
 }
