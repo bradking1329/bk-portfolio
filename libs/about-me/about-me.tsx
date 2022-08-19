@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, CardActions, CardContent, Chip, Popover, Slide, Typography } from "@mui/material"
+import { Avatar, Button, Card, CardActions, CardContent, Chip, Link, Popover, Slide, Typography } from "@mui/material"
 import { AccountTree as AccountTreeIcon, Home as HomeIcon, Info as InfoIcon, DataObject as DataObjectIcon, Code as CodeIcon } from '@mui/icons-material';
 import { useMemo, useState } from 'react'
 
@@ -7,7 +7,11 @@ interface SkillItem {
     color: 'primary' | 'secondary' | 'default' | 'success' | 'error' | 'warning' | 'info'
 }
 
-export const AboutMePage = () => {
+interface AboutMeProps {
+    seeMoreVisible: boolean
+}
+
+export const AboutMe = ({ seeMoreVisible }: AboutMeProps) => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
     const skillLegend: SkillItem[] = useMemo(() => [{ label: 'Frontend', color: 'primary'}, { label: 'Backend', color: 'secondary'}, { label: 'Operations', color: 'success'}, { label: 'Languages', color: 'info'}], [])
     const skills: SkillItem[] = useMemo(() => [
@@ -88,17 +92,16 @@ export const AboutMePage = () => {
                         <Chip key={s.label} label={s.label} color={s.color} sx={{mt: 0.5, mr: 0.5}} /> 
                     )
                 })}
-                    {/* <Chip label='React' color="primary" sx={{mt: 0.5, mr: 0.5}} /> 
-                    <Chip label='Next.js' color="primary" sx={{mt: 0.5, mr: 0.5}} /> 
-                    <Chip label='Node.js' color="secondary" sx={{mt: 0.5, mr: 0.5}} /> 
-                    <Chip label='Nest.js' color="secondary" sx={{mt: 0.5, mr: 0.5}} /> 
-                    <Chip label='Kubernetes' color='success' sx={{mt: 0.5, mr: 0.5}} /> 
-                    <Chip label='Javascript' color='info' sx={{mt: 0.5, mr: 0.5}} /> 
-                    <Chip label='Typescript' color='info' sx={{mt: 0.5, mr: 0.5}} /> */}
+                {!seeMoreVisible && (<><Typography variant='subtitle2' sx={{pt: 2}}>
+                    Placeholder subtitle
+                </Typography>
+                <Typography variant="body2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                </Typography></>)}
             </CardContent>
-            {/* <CardActions>
-              <Button size="small">See More</Button>
-            </CardActions>  */}
+            { seeMoreVisible && <CardActions sx={{ display: 'inline-flex' }}>
+              <Button size="small"><Link href='/about-me' underline="none">See More</Link></Button>
+            </CardActions>  }
             
         </Card>
        </>
