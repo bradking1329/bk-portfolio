@@ -35,7 +35,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   <ThemeProvider  theme={theme}>
     <CssBaseline>
     <GlobalNav />
-      <Container sx={{ paddingTop: '20px', paddingBottom: '80px'}}>
+      <Container sx={{ paddingTop: '20px', paddingBottom: '80px', minHeight: '100%'}}>
         <Component styles={{position: 'relative'}} {...pageProps} />
         </Container>      
     </CssBaseline>

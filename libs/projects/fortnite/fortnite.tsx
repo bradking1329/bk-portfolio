@@ -1,5 +1,6 @@
-import { Box, Button, Card, CardActions, CardContent, Chip, Grid, Paper, Skeleton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material"
+import { Box, Button, Card, CardActions, CardContent, Chip, CircularProgress, Container, Grid, Paper, Skeleton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material"
 import { useCallback, useEffect, useMemo, useState } from "react";
+import styles from './fortnite.module.scss';
 
 export const FortnitePage = () => {
     const [playerData, setPlayerData] = useState<any[]>([]);
@@ -8,7 +9,7 @@ export const FortnitePage = () => {
         try {
           await fetch('/api/fortnite').then(res => res.json()).then(playerResponses => {
             setPlayerData(playerResponses);
-            setPlayerDataLoading(true);
+            setPlayerDataLoading(false);
           })
         } catch (err) {
             console.log(err);
@@ -26,11 +27,13 @@ export const FortnitePage = () => {
 
     return (
         <>
+        { playerDataLoading ? <div className={ styles.loadingContainer }><CircularProgress /></div> :
         <Grid 
             container
             spacing={1}
             
         >
+        
         { playerData?.map((p, i) => {
             return (
                 p === undefined ? <Skeleton width={500} height={500} key={i} /> :
@@ -82,6 +85,7 @@ export const FortnitePage = () => {
             })
         }
         </Grid>
+      }
         </>
     );
 }

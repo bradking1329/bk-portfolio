@@ -56,7 +56,7 @@ export const GlobalNav = () => {
                   <Button
                     key={page.label}
                     onClick={() => console.log('click')}
-                    sx={{ my: 2, color: asPath === page.href ? prefersDarkMode ? 'white' : 'lightblue' : 'inherit', display: 'block' }}
+                    sx={{ my: 2, color: parentPage === page.href ? prefersDarkMode ? 'white' : 'lightblue' : 'inherit', display: 'block' }}
                   >
                     <Link href={page.href}>{page.label}</Link>
                   </Button>
