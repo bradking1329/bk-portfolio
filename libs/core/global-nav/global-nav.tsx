@@ -53,9 +53,9 @@ export const GlobalNav = () => {
               </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map((page) => (
+                  (page.href !== '/about-me' || flagBag?.flags?.aboutMe) && 
                   <Button
                     key={page.label}
-                    onClick={() => console.log('click')}
                     sx={{ my: 2, color: parentPage === page.href ? prefersDarkMode ? 'white' : 'lightblue' : 'inherit', display: 'block' }}
                   >
                     <Link href={page.href}>{page.label}</Link>
