@@ -27,7 +27,7 @@ export const HomePage = () => {
             </a>
             ,{' '}
             <a
-              href="https://google.com"
+              href="https://react.dev/"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -39,7 +39,7 @@ export const HomePage = () => {
             </a>
             , and{' '}
             <a
-              href="https://google.com"
+              href="https://nextjs.org/"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -51,7 +51,7 @@ export const HomePage = () => {
             </a>
             . Deployed via{' '}
             <a
-              href="https://google.com"
+              href="https://vercel.com/"
               target="_blank"
               rel="noreferrer"
               style={{
