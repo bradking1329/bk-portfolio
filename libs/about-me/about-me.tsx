@@ -6,25 +6,28 @@ import {
   CardActions,
   CardContent,
   Chip,
-  Link,
   Popover,
   Typography,
 } from '@mui/material';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AboutMeSection } from './about-me-section/about-me-section';
 import {
   aboutMeContent,
   aboutMePassion,
+  allCerts,
   allExp,
   skillLegend,
   skills,
 } from './constants';
+import { SectionType } from './types';
 
 interface AboutMeProps {
   seeMoreVisible: boolean;
 }
 
 export const AboutMe = ({ seeMoreVisible }: AboutMeProps) => {
+  const { push } = useRouter();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -98,7 +101,7 @@ export const AboutMe = ({ seeMoreVisible }: AboutMeProps) => {
               />
             );
           })}
-          <Typography variant="subtitle1" sx={{ pt: 2 }}>
+          <Typography variant="subtitle1" sx={{ pt: 2, fontWeight: 'bold' }}>
             About me
           </Typography>
           <Typography variant="body1">
@@ -111,17 +114,20 @@ export const AboutMe = ({ seeMoreVisible }: AboutMeProps) => {
               <AboutMeSection
                 title={'Experience'}
                 content={allExp}
-                type={'experience'}
+                type={SectionType.Experience}
+              />
+              <AboutMeSection
+                title={'Certifications'}
+                content={allCerts}
+                type={SectionType.Certification}
               />
             </>
           )}
         </CardContent>
         {seeMoreVisible && (
           <CardActions sx={{ display: 'inline-flex' }}>
-            <Button size="small">
-              <Link href="/about-me" underline="none">
-                See More
-              </Link>
+            <Button size="small" onClick={() => push('/about-me')}>
+              See More
             </Button>
           </CardActions>
         )}

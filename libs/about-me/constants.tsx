@@ -1,19 +1,27 @@
-import { Experience, SkillItem } from './types';
+import { Content, SkillItem } from './types';
 
-export const seExp: Experience = {
-  company: 'Dynatrace',
-  jobTitle: 'Software Engineer',
-  startDate: 'December 2021',
-  endDate: 'Present',
-  jobNotes: ['Full stack application', 'Testing'],
+export const csdCert: Content = {
+  companyOrDistributor: 'Scrum Alliance',
+  title: 'Certified Scrum Developer',
+  startDate: 'June 2022',
+  endDate: 'June 2024',
+  notes: [],
 };
 
-export const psExp: Experience = {
-  company: 'Dynatrace',
-  jobTitle: 'Product Specialist II',
+export const seExp: Content = {
+  companyOrDistributor: 'Dynatrace',
+  title: 'Software Engineer',
+  startDate: 'December 2021',
+  endDate: 'Present',
+  notes: ['Full stack application', 'Testing'],
+};
+
+export const psExp: Content = {
+  companyOrDistributor: 'Dynatrace',
+  title: 'Product Specialist II',
   startDate: 'February 2019',
   endDate: 'November 2021',
-  jobNotes: [
+  notes: [
     'Consult and coach customers on Dynatrace features and best practices.',
     'Present Dynatrace and its core-concepts to technical and non-technical teams.',
     'Develop internal and customer-facing training on topics such as AIOps and Autonomous Cloud Management (Keptn).',
@@ -24,7 +32,8 @@ export const psExp: Experience = {
   ],
 };
 
-export const allExp: Experience[] = [seExp, psExp];
+export const allExp: Content[] = [seExp, psExp];
+export const allCerts: Content[] = [csdCert];
 
 export const aboutMeContent = `I'm a software engineer based in Detroit, MI.`;
 

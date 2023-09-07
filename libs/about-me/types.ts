@@ -1,10 +1,15 @@
-export type Experience = {
-  company: string;
-  jobTitle: string;
+export interface Content {
+  title: string;
   startDate: string;
   endDate: string;
-  jobNotes: string[];
-};
+  companyOrDistributor: string;
+  notes: string[];
+}
+
+export enum SectionType {
+  Certification = 'certifications',
+  Experience = 'experience',
+}
 
 export interface SkillItem {
   label: string;

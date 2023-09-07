@@ -1,13 +1,17 @@
 import { Divider, Typography } from '@mui/material';
-import { Experience } from '../types';
+import { Content, SectionType } from '../types';
 
 interface AboutMeSectionProps {
   title: string;
-  content: Experience[];
-  type: 'experience' | 'certifications';
+  content: Content[];
+  type: SectionType;
 }
 
-export const AboutMeSection = ({ title, content }: AboutMeSectionProps) => {
+export const AboutMeSection = ({
+  title,
+  content,
+  type,
+}: AboutMeSectionProps) => {
   return (
     <>
       <Divider sx={{ pt: 2 }}>
@@ -15,7 +19,7 @@ export const AboutMeSection = ({ title, content }: AboutMeSectionProps) => {
       </Divider>
       {content.map((c, i) => (
         <Typography variant="body2" key={i}>
-          {c.jobTitle} - <i>{c.company}</i>, {c.startDate}
+          {c.title} - <i>{c.companyOrDistributor}</i>, {c.startDate}
         </Typography>
       ))}
     </>
