@@ -21,6 +21,7 @@ export const AboutMeSection = ({
         <Typography variant="body2" key={i}>
           {c.title} - <i>{c.companyOrDistributor}</i>, {c.startDate}
         </Typography>
+        
       ))}
     </>
   );

@@ -90,7 +90,7 @@ export const AboutMe = ({ seeMoreVisible }: AboutMeProps) => {
             })}
           </Popover>
           <Typography variant="h5">Brad King</Typography>
-          <Typography variant="h6">Full Stack Software Engineer</Typography>
+          <Typography variant="h6">Senior Software Engineer (Full Stack)</Typography>
           {skills.map((s) => {
             return (
               <Chip

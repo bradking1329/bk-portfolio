@@ -71,7 +71,7 @@ export const GlobalNav = () => {
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map(
                   (page) =>
-                    (page.href !== '/about-me' || flagBag?.flags?.aboutMe) && (
+                    (page.href !== '/projects' || flagBag?.flags?.projects) && (
                       <Button
                         key={page.label}
                         sx={{
@@ -164,7 +164,7 @@ export const GlobalNav = () => {
               >
                 {pages.map(
                   (page) =>
-                    (page.href !== '/about-me' || flagBag?.flags?.aboutMe) && (
+                    (page.href !== '/projects' || flagBag?.flags?.projects) && (
                       <BottomNavigationAction
                         key={page.label}
                         label={page.label}

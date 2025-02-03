@@ -3,8 +3,24 @@ import { Content, SkillItem } from './types';
 export const csdCert: Content = {
   companyOrDistributor: 'Scrum Alliance',
   title: 'Certified Scrum Developer',
-  startDate: 'June 2022',
-  endDate: 'June 2024',
+  startDate: 'June 2024',
+  endDate: 'June 2026',
+  notes: [],
+};
+
+export const dtCert: Content = {
+  companyOrDistributor: 'Dynatrace',
+  title: 'Certified Associate',
+  startDate: 'August 2024',
+  endDate: 'August 2026',
+  notes: [],
+};
+
+export const seniorSeExp: Content = {
+  companyOrDistributor: 'Dynatrace',
+  title: 'Senior Software Engineer',
+  startDate: 'December 2023',
+  endDate: 'Present',
   notes: [],
 };
 
@@ -12,7 +28,7 @@ export const seExp: Content = {
   companyOrDistributor: 'Dynatrace',
   title: 'Software Engineer',
   startDate: 'December 2021',
-  endDate: 'Present',
+  endDate: 'December 2023',
   notes: ['Full stack application', 'Testing'],
 };
 
@@ -32,8 +48,8 @@ export const psExp: Content = {
   ],
 };
 
-export const allExp: Content[] = [seExp, psExp];
-export const allCerts: Content[] = [csdCert];
+export const allExp: Content[] = [seniorSeExp, seExp, psExp];
+export const allCerts: Content[] = [csdCert, dtCert];
 
 export const aboutMeContent = `I'm a software engineer based in Detroit, MI.`;
 
@@ -49,8 +65,10 @@ export const skillLegend: SkillItem[] = [
 export const skills: SkillItem[] = [
   { label: 'React', color: 'primary' },
   { label: 'Next.js', color: 'primary' },
+  { label: 'Angular', color: 'primary' },
   { label: 'Node.js', color: 'secondary' },
-  { label: 'Nest.js', color: 'secondary' },
+  { label: 'Express', color: 'secondary' },
+  { label: 'NestJS', color: 'secondary' },
   { label: 'Javascript', color: 'info' },
   { label: 'Typescript', color: 'info' },
   { label: 'Jest', color: 'warning' },
